@@ -1,10 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  template: `
+    <app-artworks></app-artworks>
+  `,
+  styles: [`
+    h1 {
+      color: red;
+    }
+  `]
 })
 export class AppComponent {
-  title = 'my-museum';
+  constructor() { }
+
+  ngOnInit() {
+
+  }
 }

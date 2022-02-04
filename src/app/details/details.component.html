@@ -1,27 +1,35 @@
-<div *ngIf="artwork">
-    <h1>{{ artwork.title }} ({{ details.data.date_display }})</h1>
+<div class='page-container'>
+    <div *ngIf="artwork">
+        <h1>{{ artwork.title }} ({{ details.data.date_display }})</h1>
 
-    <table>
-        <thead>
+        <table class='page-table'>
+            <thead>
+                <tr>
+                    by {{ details.data.artist_title ? details.data.artist_title : 'Unknown' }}
+                </tr>
+                <br />
+                <tr>
+                    <img src="https://www.artic.edu/iiif/2/{{details.data.image_id}}/full/843,/0/default.jpg">
+                </tr>
+            </thead>
+            <br />
+            <div id='description'>
+                <p>
+                {{ details.data.thumbnail.alt_text }}
+                </p>
+            </div>
+            <br />
+            <br />
             <tr>
-                by {{ details.data.artist_title }}
+                {{ details.data.department_title }}
             </tr>
-            <tr>
-                <img src="https://www.artic.edu/iiif/2/{{details.data.image_id}}/full/843,/0/default.jpg">
-            </tr>
-        </thead>
-        <br />
-        <tr>
-            {{ details.data.thumbnail.alt_text }}
-        </tr>
-        <br />
-        <tr>
-            {{ details.data.department_title }}
-        </tr>
-    </table>
+        </table>
+    </div>
+    <div *ngIf="!artwork">
+        No artwork found
+    </div>
+    <br />
+    <a routerLink="/artworks">View All Artworks</a>
+    <br />
+    <br />
 </div>
-<div *ngIf="!artwork">
-    No artwork found
-</div>
-<br />
-<a routerLink="/artworks">View All Artworks</a>

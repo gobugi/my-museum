@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+body { margin: 0; padding: 0; background-color: #f2f2f20e; max-width: 100%; overflow-x: hidden;}
+
+* {
+  text-decoration: none;
+}
+
+app-details {
+  margin: 2em !important;
+}

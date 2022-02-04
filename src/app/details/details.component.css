@@ -1,0 +1,13 @@
+.page-container {
+  text-align: center;
+}
+
+.page-table {
+  margin: auto;
+}
+
+#description {
+  max-width: 843px;
+  text-align: center;
+  margin: auto;
+}

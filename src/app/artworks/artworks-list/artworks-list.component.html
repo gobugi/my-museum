@@ -2,13 +2,14 @@
 <br />
 <br />
 <div class="archive">
-    <table class="table table-hover">
+    <table class="main-table">
         <thead>
             <tr>
                 <th (click)="sort('title')">Title</th>
                 <th (click)="sort('artist_title')">Artist</th>
                 <th (click)="sort('department_title')">Department</th>
             </tr>
+            <br />
         </thead>
         <tr *ngFor="let artwork of filteredArtworks">
             <td>
@@ -16,7 +17,7 @@
                     {{ artwork.title }}
                 </a>
             </td>
-            <td>{{ artwork.artist_title }}</td>
+            <td>{{ artwork.artist_title ? artwork.artist_title : 'Unknown'}}</td>
             <td>{{ artwork.department_title }}</td>
         </tr>
         <tr *ngIf="!filteredArtworks || !filteredArtworks.length">
@@ -24,6 +25,7 @@
         </tr>
     </table>
     <br />
-    Number of Artworks: {{ filteredArtworks.length }}
+    <span>Number of Artworks: {{ filteredArtworks.length }}</span>
+    <br />
     <br />
 </div>

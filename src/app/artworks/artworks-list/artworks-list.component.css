@@ -1,7 +1,41 @@
+
 app-filter:hover {
   cursor: default;
 }
 
+table {
+  width:100%;
+  table-layout:fixed;
+  border-spacing:0;
+  text-align: left;
+}
+
 table:hover {
   cursor: default;
+}
+
+.main-table > thead > tr > th {
+  width:20%;
+  padding: 0 2em;
+}
+
+.main-table > thead > tr > th:nth-child(1) {
+  width:60%;
+}
+
+tr > td {
+  width:20%;
+  padding: 0 2em;
+}
+
+tr > td:nth-child(1) {
+  width:60%;
+}
+
+span {
+  padding: 2em;
+}
+
+app-filter {
+  padding: 2em;
 }

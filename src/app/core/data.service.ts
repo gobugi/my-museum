@@ -17,6 +17,18 @@ export class DataService {
         return this.http.get<IArtwork[]>(this.baseUrl + 'artworks.json')
     }
 
+
+    getArtwork(id: number) : Observable<IArtwork> {
+      return this.http.get<IArtwork[]>(this.baseUrl + 'artworks.json')
+        .pipe(
+          map(artworks => {
+            let artwork = artworks.filter((art: IArtwork) => art.id === id);
+            return artwork[0];
+          })
+        )
+    }
+
+
     getDetails(id: number) {
       return this.http.get("https://api.artic.edu/api/v1/artworks/" + id)
     }

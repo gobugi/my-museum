@@ -1,0 +1,15 @@
+<div *ngIf="artwork">
+    <h1>{{ artwork.title }}</h1>
+
+    <table>
+        <tr>
+            <td>{{ 'hello world' }}</td>
+            <td>{{ 'hello world' }}</td>
+        </tr>
+    </table>
+</div>
+<div *ngIf="!artwork">
+    No artwork found
+</div>
+<br />
+<a routerLink="/artworks">View All Artworks</a>

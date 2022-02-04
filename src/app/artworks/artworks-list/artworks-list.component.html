@@ -11,18 +11,13 @@
             </tr>
         </thead>
         <tr *ngFor="let artwork of filteredArtworks">
-          <!-- <td>
-              <a href="https://api.artic.edu/api/v1/artworks/{{ artwork.id }}">
-                  {{ artwork.title }}
-              </a>
-          </td> -->
-          <td>
-            <a [routerLink]="['/details', artwork.id]">
-                {{ artwork.title }}
-            </a>
-          </td>
-          <td>{{ artwork.artist_title }}</td>
-          <td>{{ artwork.department_title }}</td>
+            <td>
+                <a [routerLink]="['/details', artwork.id]">
+                    {{ artwork.title }}
+                </a>
+            </td>
+            <td>{{ artwork.artist_title }}</td>
+            <td>{{ artwork.department_title }}</td>
         </tr>
         <tr *ngIf="!filteredArtworks || !filteredArtworks.length">
             <td colspan="4">No artworks found</td>

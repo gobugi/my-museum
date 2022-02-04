@@ -2,9 +2,19 @@
     <h1>{{ artwork.title }}</h1>
 
     <table>
+        <thead>
+            <tr>
+                by {{ details.data.artist_title }}
+            </tr>
+            <tr>
+                <img src="https://www.artic.edu/iiif/2/{{details.data.image_id}}/full/843,/0/default.jpg">
+            </tr>
+        </thead>
         <tr>
-            <td>{{ 'hello world' }}</td>
-            <td>{{ 'hello world' }}</td>
+            {{ details.data.date_display }}
+        </tr>
+        <tr>
+            {{ details.data.department_title }}
         </tr>
     </table>
 </div>

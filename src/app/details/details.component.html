@@ -5,7 +5,7 @@
         <table class='page-table'>
             <thead>
                 <tr>
-                    by {{ details.data.artist_title ? details.data.artist_title : 'Unknown' }}
+                    by {{ details.data.artist_title }}
                 </tr>
                 <br />
                 <tr>
@@ -14,20 +14,26 @@
             </thead>
             <br />
             <div id='description'>
-                <p>
-                {{ details.data.thumbnail.alt_text }}
+                <p id='short-des'>
+                    {{ details.data.thumbnail.alt_text.length < 130 ? details.data.thumbnail.alt_text : null}}
+                    <br />
+                    <br />
+                    {{ details.data.thumbnail.alt_text.length < 130 ? details.data.department_title : null}}
                 </p>
+                <p id='long-des'>
+                  {{ details.data.thumbnail.alt_text.length > 130 ? details.data.thumbnail.alt_text : null}}
+                  <br />
+                  <br />
+                  {{ details.data.thumbnail.alt_text.length > 130 ? details.data.department_title : null}}
+                </p>
+
             </div>
-            <br />
-            <br />
-            <tr>
-                {{ details.data.department_title }}
-            </tr>
         </table>
     </div>
     <div *ngIf="!artwork">
         No artwork found
     </div>
+    <br />
     <br />
     <a routerLink="/artworks">View All Artworks</a>
     <br />

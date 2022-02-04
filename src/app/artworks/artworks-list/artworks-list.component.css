@@ -39,3 +39,7 @@ span {
 app-filter {
   padding: 2em;
 }
+
+.fas {
+  color: rgba(105, 105, 105, 0.212);
+}

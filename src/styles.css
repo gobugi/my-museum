@@ -1,8 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
-body { margin: 0; padding: 0; background-color: #f2f2f20e; max-width: 100%; overflow-x: hidden;}
+body { margin: 0; padding: 0; background-color: #f2f2f20e; max-width: 100%; overflow-x: hidden; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;}
 
 * {
   text-decoration: none;
+}
+
+*:link {
+  color: #b50938;
+}
+
+*:visited {
+  color: #a0770fd7;
 }
 
 app-details {

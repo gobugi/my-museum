@@ -1,53 +1,50 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { IArtwork } from '../../shared/interfaces';
+import { SorterService } from '../../core/sorter.service';
 
 @Component({
     selector: 'app-artworks-list',
-    templateUrl: './artworks-list.component.html'
+    templateUrl: './artworks-list.component.html',
+    styleUrls: ['./artworks-list.component.css']
 })
 export class ArtworksListComponent implements OnInit {
+    private _artworks: IArtwork[] = [];
+    @Input() get artworks(): IArtwork[] {
+        return this._artworks;
+    }
 
-    filteredArtworks: IArtwork[] = [];
-    constructor() {}
+    set artworks(value: IArtwork[]) {
+        if (value) {
+            this.filteredArtworks = this._artworks = value;
+
+        }
+    }
+
+    filteredArtworks: any[] = [];
+
+    constructor(private sorterService: SorterService) {}
 
     ngOnInit() {
-      this.filteredArtworks = [
-        {
-          "id": 869,
-          "title": "The Watermill with the Great Red Roof",
-          "main_reference_number": "1894.1031",
-          "department_title": "Painting and Sculpture of Europe",
-          "artist_title": "Meindert Hobbema"
-        },
-        {
-          "id": 2189,
-          "title": "Ready-to-Wear",
-          "main_reference_number": "1956.137",
-          "department_title": "Arts of the Americas",
-          "artist_title": "Stuart Davis"
-        },
-        {
-          "id": 2816,
-          "title": "Interior at Nice",
-          "main_reference_number": "1956.339",
-          "department_title": "Modern Art",
-          "artist_title": "Henri Matisse"
-        },
-        {
-          "id": 4081,
-          "title": "Gian Lodovico Madruzzo",
-          "main_reference_number": "1929.912",
-          "department_title": "Painting and Sculpture of Europe",
-          "artist_title": "Giovanni Battista Moroni"
-        },
-        {
-          "id": 4428,
-          "title": "Mère Grégoire",
-          "main_reference_number": "1930.78",
-          "department_title": "Painting and Sculpture of Europe",
-          "artist_title": "Gustave Courbet"
-        },
-      ];
+
     }
+
+    filter(data: string) {
+        if (data) {
+            this.filteredArtworks = this.artworks.filter((art: IArtwork) => {
+                return art.title.toLowerCase().indexOf(data.toLowerCase()) > -1 ||
+                    art.artist_title.toLowerCase().indexOf(data.toLowerCase()) > -1 ||
+                    art.main_reference_number.indexOf(data.toLowerCase()) > -1 ||
+                    art.department_title.toLowerCase().indexOf(data.toLowerCase()) > -1;
+            });
+        } else {
+            this.filteredArtworks = this.artworks;
+        }
+    }
+
+
+    sort(prop: (string | number)) {
+      this.sorterService.sort(this.filteredArtworks, prop);
+    }
+
 }

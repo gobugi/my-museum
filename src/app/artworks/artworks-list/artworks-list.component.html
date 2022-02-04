@@ -1,13 +1,13 @@
-<app-filter></app-filter>
+<app-filter (changed)="filter($event)"></app-filter>
 <br />
 <br />
 <table class="table table-hover">
     <thead>
         <tr>
-            <th>Title</th>
-            <th>Artist</th>
-            <th>Year</th>
-            <th>Department</th>
+            <th (click)="sort('title')">Title</th>
+            <th (click)="sort('artist_title')">Artist</th>
+            <th (click)="sort('main_reference_number')">Year</th>
+            <th (click)="sort('department_title')">Department</th>
         </tr>
     </thead>
     <tr *ngFor="let artwork of filteredArtworks">
@@ -15,10 +15,11 @@
       <td>{{ artwork.artist_title }}</td>
       <td>{{ artwork.main_reference_number }}</td>
       <td>{{ artwork.department_title }}</td>
-  </tr>
-  <tr *ngIf="!filteredArtworks || !filteredArtworks.length">
-      <td colspan="4">No artworks found</td>
-  </tr>
+    </tr>
+    <tr *ngIf="!filteredArtworks || !filteredArtworks.length">
+        <td colspan="4">No artworks found</td>
+    </tr>
 </table>
+<br />
 Number of Artworks: {{ filteredArtworks.length }}
 <br />

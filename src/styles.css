@@ -6,11 +6,11 @@ body { margin: 0; padding: 0; background-color: #f2f2f20e; max-width: 100%; over
 }
 
 *:link {
-  color: #b50938;
+  color: #b50937d2;
 }
 
 *:visited {
-  color: #a0770fd7;
+  color: #a0770fed;
 }
 
 app-details {

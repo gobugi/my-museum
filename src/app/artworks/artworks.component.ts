@@ -15,7 +15,7 @@ export class ArtworksComponent implements OnInit {
   constructor(private dataService: DataService) {}
 
   ngOnInit() {
-    this.mainTitle = 'Welcome to the Art Institute of Chicago';
+    this.mainTitle = 'Welcome to My Museum';
     this.dataService.getArtworks()
       .subscribe((artworks: IArtwork[]) => this.art = artworks);
   }

@@ -1,5 +1,5 @@
 <div *ngIf="artwork">
-    <h1>{{ artwork.title }}</h1>
+    <h1>{{ artwork.title }} ({{ details.data.date_display }})</h1>
 
     <table>
         <thead>
@@ -10,9 +10,11 @@
                 <img src="https://www.artic.edu/iiif/2/{{details.data.image_id}}/full/843,/0/default.jpg">
             </tr>
         </thead>
+        <br />
         <tr>
-            {{ details.data.date_display }}
+            {{ details.data.thumbnail.alt_text }}
         </tr>
+        <br />
         <tr>
             {{ details.data.department_title }}
         </tr>

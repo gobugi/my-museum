@@ -3,13 +3,9 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `
-    <app-artworks></app-artworks>
+    <router-outlet></router-outlet>
   `,
-  styles: [`
-    h1 {
-      color: red;
-    }
-  `]
+  styles: [``]
 })
 export class AppComponent {
   constructor() { }

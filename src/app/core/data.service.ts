@@ -17,4 +17,8 @@ export class DataService {
         return this.http.get<IArtwork[]>(this.baseUrl + 'artworks.json')
     }
 
+    getDetails(id: number) {
+      return this.http.get("https://api.artic.edu/api/v1/artworks/" + id)
+    }
+
 }

@@ -68,10 +68,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "my-museum:build:production"
+              "buildTarget": "my-museum:build:production"
             },
             "development": {
-              "browserTarget": "my-museum:build:development"
+              "buildTarget": "my-museum:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -79,7 +79,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "my-museum:build"
+            "buildTarget": "my-museum:build"
           }
         },
         "test": {
@@ -102,5 +102,7 @@
       }
     }
   },
-  "defaultProject": "my-museum"
+  "cli": {
+    "analytics": false
+  }
 }
